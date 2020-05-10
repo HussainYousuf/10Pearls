@@ -99,7 +99,7 @@ public class Task {
     public static void main(String[] args) {
         Task task = new Task();
         Random random = new Random();
-        for (int i = 0; i < 50; i++) { // increase this number (50) for even random more tests
+        for (int i = 0; i < 50; i++) { // increase this number (50) for more tests
             int arr[] = new int[random.nextInt(20)];
             for (int j = 0; j < arr.length; j++) {
                 arr[j] = random.nextInt(50) - random.nextInt(50);
