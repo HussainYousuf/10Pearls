@@ -10,4 +10,4 @@ Task.hs (Haskell)
 
 About Time Complexity
   
-Algorithms in both files run in O(nlogn) time, which is the minimum time which any comparision based sort algorithm takes, no matter how many optimizations are made, for sufficiently large n, tight upperbound will always be O(NlogN) 
+Algorithms in both files run in O(nlogn) time, which is the minimum time which any comparision based sort algorithm takes. No matter how many optimizations are made, for sufficiently large n, tight upperbound will always be O(NlogN).

@@ -36,6 +36,10 @@ public class Task {
         }
     }
 
+    boolean isOdd(int a) {
+        return Math.floorMod(a, 2) == 1;
+    }
+
     // O(nlogn)
     void Sort(int arr[]) {
         // O(nlogn)
@@ -47,7 +51,7 @@ public class Task {
         int k = 0;
         // O(n)
         for (int i = 0; i < arr.length; i++) {
-            if (Math.floorMod(arr[i], 2) == 1) {
+            if (isOdd(arr[i])) {
                 odds[j++] = arr[i];
             } else {
                 evens[k++] = arr[i];
@@ -70,23 +74,23 @@ public class Task {
         boolean has_happend_once = false;
         for (int i = 1; i < arr.length; i++) {
             // the condition in for loop accounts for unit and null arrays
-            if (Math.floorMod(arr[i - 1], 2) == 0 && Math.floorMod(arr[i], 2) == 0 && arr[i] - arr[i - 1] < 0) {
+            if (!isOdd(arr[i - 1]) && !isOdd(arr[i]) && arr[i] - arr[i - 1] < 0) {
                 // this accounts for a[i] >= a[j] if i > j
                 // where i,j are indices and a[i],a[j] are values
                 // essentially makes sure that array is sorted
                 return false;
-            } else if (Math.floorMod(arr[i - 1], 2) == 1 && Math.floorMod(arr[i], 2) == 1 && arr[i] - arr[i - 1] < 0) {
+            } else if (isOdd(arr[i - 1]) && isOdd(arr[i]) && arr[i] - arr[i - 1] < 0) {
                 // this accounts for a[i] >= a[j] if i > j
                 // where i,j are indices and a[i],a[j] are values
                 // essentially makes sure that array is sorted
                 return false;
-            } else if (Math.floorMod(arr[i - 1], 2) == 1 && Math.floorMod(arr[i], 2) == 0) {
+            } else if (isOdd(arr[i - 1]) && !isOdd(arr[i])) {
                 // this condition will happen only once
                 // essentially its the demarcation point b/w odd and even sorted numbers
                 if (has_happend_once)
                     return false;
                 has_happend_once = true;
-            } else if (Math.floorMod(arr[i - 1], 2) == 0 && Math.floorMod(arr[i], 2) == 1) {
+            } else if (!isOdd(arr[i - 1]) && isOdd(arr[i])) {
                 // this condition must not happen
                 // this implies that evens occured before odds
                 return false;
